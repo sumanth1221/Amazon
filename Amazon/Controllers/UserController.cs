@@ -29,7 +29,7 @@ namespace Amazon.Controllers
                                           join r in _context.AmzUserRoles on p.UserRoleId equals r.UserRoleId
                                       select new
                                           {
-                                              p.UserNme,
+                                              p.UserName,
                                               p.UserId,
                                               p.UserEmail,
                                               p.UserPhNo,
@@ -43,7 +43,7 @@ namespace Amazon.Controllers
                 {
                     UserViewModel.Add(new UserViewModel
                     {
-                        UserNme = o.UserNme,
+                        UserNme = o.UserName,
                         UserId = o.UserId,
                         UserEmail = o.UserEmail,
                         UserPhNo = o.UserPhNo,
@@ -84,7 +84,7 @@ namespace Amazon.Controllers
             AmzUser User = new AmzUser();
 
             User.UserRoleId = userView.SelectedUserRoleId;
-            User.UserNme = userView.UserNme;
+            User.UserName = userView.UserNme;
             User.UserEmail = userView.UserEmail;
             User.UserPhNo = userView.UserPhNo;
             User.PassWord = userView.PassWord;

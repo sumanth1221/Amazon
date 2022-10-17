@@ -20,7 +20,7 @@ namespace Amazon.Repositories
             return department;
         }
 
-        public ProductViewModel productViewModel()
+        public ProductViewModel ProductViewModel()
         {
             var cRepo = new CategoryRepository();
             var dRepo = new DepartmentRepository();

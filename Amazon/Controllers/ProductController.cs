@@ -85,7 +85,7 @@ namespace Amazon.Controllers
             if (CustID != null && CustRole == Enums.UserRoleEnum.Admin.ToString())
             {
                 var repo = new DepartmentRepository();
-                var DepartmentList = repo.productViewModel();
+                var DepartmentList = repo.ProductViewModel();
                 return View(DepartmentList);
             }
             else

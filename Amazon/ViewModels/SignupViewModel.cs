@@ -7,8 +7,8 @@ namespace Amazon.ViewModels
         public int UserId { get; set; }
         public string? UserNme { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Eamil")]
-        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "Please Provide Valid Email")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Email")]
+        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "Please Provide Valid Email address")]
         public string? UserEmail { get; set; }
         public string? UserPhNo { get; set; }
         public bool? ActInd { get; set; }

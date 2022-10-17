@@ -17,7 +17,7 @@ namespace Amazon.Models
         [Column("USER_NME")]
         [StringLength(50)]
         [Unicode(false)]
-        public string? UserNme { get; set; }
+        public string? UserName { get; set; }
         [Column("USER_EMAIL")]
         [StringLength(50)]
         [Unicode(false)]

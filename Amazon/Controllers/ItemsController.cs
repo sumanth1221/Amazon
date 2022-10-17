@@ -31,7 +31,7 @@ namespace Amazon.Controllers
         public List<ProductViewModel> GetProductViewModels(string Searchby)
         {
             var repo = new DepartmentRepository();
-            var DepartmentList = repo.productViewModel();
+            var DepartmentList = repo.ProductViewModel();
             ViewBag.Department = DepartmentList.Department;
 
             List<ProductViewModel> productViewModel = new List<ProductViewModel>();
@@ -78,7 +78,7 @@ namespace Amazon.Controllers
     public List<ProductViewModel> GetProductViewModels()
     {
         var repo = new DepartmentRepository();
-        var DepartmentList = repo.productViewModel();
+        var DepartmentList = repo.ProductViewModel();
         ViewBag.Department = DepartmentList.Department;
 
         List<ProductViewModel> productViewModel = new List<ProductViewModel>();

@@ -94,7 +94,7 @@ namespace Amazon.Controllers
                 Users.UserRoleId = UserRoles.UserRoleId;
                 Users.ActInd = true;
                 Users.UserEmail = signupviewmodel.UserEmail;
-                Users.UserNme = signupviewmodel.UserNme;
+                Users.UserName = signupviewmodel.UserNme;
                 Users.UserPhNo = signupviewmodel.UserPhNo;
                 Users.PassWord = signupviewmodel.PassWord;
                 _context.Attach(Users);
