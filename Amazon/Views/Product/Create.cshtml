@@ -1,0 +1,166 @@
+﻿  
+  <style  class="init">
+      .col-15 {
+  float: left;
+  width: 15%;
+  margin-top: 6px;
+}
+
+      .col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+  input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+</style>
+
+<script src="~/ckeditor/ckeditor.js"></script>
+<script src="~/ckeditor/adapters/jquery.js"></script>
+
+@section scripts  {
+
+<script type="text/javascript">
+var selectedCategorys = $("#Department").val();
+var SubCategorySelects = $("#Category").val();
+
+    $(document).ready(function() {
+        });
+
+            function fileCheck(obj) {
+        var fileExtension = ['jpeg', 'jpg', 'png', 'gif', 'bmp'];
+        var Dpt = $("#file").val();
+        if ($.inArray($(obj).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+           $("#file").val('');
+            alert("Only '.jpeg','.jpg', '.png', '.gif', '.bmp' formats are allowed.");
+            $("#file").val('');
+        }
+    }
+
+
+         function ValidateUser() {  
+        event = event || window.event || event.srcElement;  
+            if (selectedCategorys == '' || SubCategorySelects  == '') 
+            {
+              document.getElementById("error").innerHTML = "Fill in all values";
+              $("#error").show().delay(3000).fadeOut();
+              return false;
+            }
+            if (selectedCategorys != '' && SubCategorySelects != '')
+            {
+              return true;
+            }
+            else
+              return false;
+    }
+
+$('#Department').change(function () {
+    selectedCategorys = $("#Department").val()
+    var selectedCategory = $("#Department").val();
+    var SubCategorySelect = $('#Category');
+    SubCategorySelect.empty();
+    if (selectedCategory != null && selectedCategory != '') {
+        $.getJSON('@Url.Action("GetCategories")', { id: selectedCategory }, function (SubCategory) {
+            if (SubCategory != null && !jQuery.isEmptyObject(SubCategory)) {
+                SubCategorySelect.append($('<option/>', {
+                    value: null,
+                    text: "Select Category"
+                }));
+                $.each(SubCategory, function (index, SubCategory) {
+                    SubCategorySelect.append($('<option/>', {
+                        value: SubCategory.value,
+                        text: SubCategory.text 
+                    }));
+                });
+            };
+        });
+    }
+});
+
+$('#Category').change(function () {
+SubCategorySelects = $("#Category").val()
+});
+
+</script>
+    }
+
+@model Amazon.ViewModels.ProductViewModel
+@{
+    ViewBag.Title = "Product";
+} 
+<h2><font color="Brown">Add New Product </font></></h2>
+
+<div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="well ">
+                    <p style="text-align: center; "><font color="#ff0000">WELCOME TO AMAZON</font></p><p style="text-align: center; ">⚠️ EXCLUSIVE ON Amazon (PROMOTION) category actived.<br></p><p style="text-align: center; ">All Services and Products Provider</p><p style="text-align: center; "><img src="https://cdn.mypanel.link/246i0o/s6xe02pg79obuwh3.png" style="display: inline-block; width: 32px; max-width: 100%; height: 32px;" class="img-responsive">&nbsp;<a href="https://join.skype.com/invite/GhOFRmDZqWLi" target="_blank">SKYPE</a><br></p><p style="text-align: center; "><img src="https://cdn.mypanel.link/246i0o/i9r73yq234m3kczw.png" style="display: inline-block; width: 32px; max-width: 100%; height: 32px;" class="img-responsive">&nbsp;Amazon.com</p><p style="text-align: center; "><a href="mailto:amazon@gmail.com">amazon@gmail.com</a></p><p class="p1" style="margin-bottom: 0px; font-stretch: normal; font-size: 17px; line-height: normal; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto;"><span class="s1" style="font-family: UICTFontTextStyleBody;"><br></span></p><p class="p1" style="text-align: center; margin-bottom: 0px; font-stretch: normal; font-size: 17px; line-height: normal; caret-color: rgb(0, 0, 0); -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); text-size-adjust: auto;"><span class="s1" style="font-family: UICTFontTextStyleBody;"><font color="#010101">[Worldwide]Credit - Bank Card Payment Method Activated&nbsp;<span class="s2" style=""><a href="https://www.r10.net/instagram/1770665-medyamarketim-com-iddia-ediyoruz-daha-ucuzu-yok-takipci-begeni-servis-saglayici-farki-ile.html" style="">✅</a></span></font></span></p><p class="p1" style="margin-bottom: 0px; font-stretch: normal; font-size: 17px; line-height: normal; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto;"><span class="s1" style="font-family: UICTFontTextStyleBody;"><br></span></p><p style="text-align: center; "></p><p style="text-align: center; ">We have completed 1M+ orders so far</p>
+                </div>
+           </div>
+
+           <div class="col-md-8">
+            <div class="well">
+               @using (Html.BeginForm("Create", "Product", FormMethod.Post , new { enctype ="multipart/form-data", onsubmit="return ValidateUser();"}))  
+               { 
+                   <form  method="post">
+                      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                      <div class="form-group">
+                       <label  class="control-label"><font color="Brown">Department:</font> <font color="#ff0000">*</font></label>
+                        @Html.DropDownListFor(x => Model.SelectedDepartmentId, new SelectList(Model.Department, "Value", "Text"), htmlAttributes: new { @class = "form-control  col-md-2", @id = "Department"})
+                        @Html.ValidationMessageFor(x => x.SelectedDepartmentId, "", new { @class = "text-danger" })
+                       </div> 
+                        <div class="form-group">
+                       <label  class="control-label"><font color="Brown">Category:</font> <font color="#ff0000">*</font></label>
+                        @Html.DropDownListFor(x => Model.SelectedCategoryId, new SelectList(Model.Category, "Value", "Text"), htmlAttributes: new { @class = "form-control  col-md-2", @id = "Category"})
+                        @Html.ValidationMessageFor(x => x.SelectedCategoryId, "", new { @class = "text-danger" })
+                       </div> 
+                    <div class="form-group">
+                          <label for="CustEmail" class="control-label"><font color="Brown">Product Name:</font> <font color="#ff0000">*</font></label>
+                         <input asp-for="ProdNme" class="form-control" required/>
+                         <span asp-validation-for="ProdNme" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                       <label asp-for="ProdQnty" class="control-label"><font color="Brown">Quantity:</font><font color="#ff0000">*</font></label>
+                       <input asp-for="ProdQnty"id="quantity" class="form-control" onblur = "OrderCharges();" required/>
+                       <span asp-validation-for="ProdQnty" class="text-danger"></span>
+                    </div> 
+                    <div class="form-group">
+                       <label asp-for="ProdPrce" class="control-label"><font color="Brown">Price:</font><font color="#ff0000">*</font></label>
+                       <input asp-for="ProdPrce"id="quantity" class="form-control" onblur = "OrderCharges();" required/>
+                       <span asp-validation-for="ProdPrce" class="text-danger"></span>
+                    </div> 
+                    <div class="form-group">
+                         <label for="subject"><font color="Brown">Description:</font></label>
+                         @Html.TextAreaFor(model => model.ProdDesc, htmlAttributes: new { @class = "ckeditor", placeholder = "Product Description.." })
+                         @Html.ValidationMessageFor(model => model.ProdDesc)
+                   </div>
+                   <div class="form-group">
+                         <label for="title" class="control-label"> <font color="Brown">Image:</font></label>
+                         <input type="file" name="file" id="file" onchange="fileCheck(this);" />
+                         @Html.ValidationMessageFor(model => model.ProdImg)
+                   </div>
+                    <h6 > <font color="#ff0000"> @ViewBag.error  </font></h6>
+                    <input type="hidden" name="_csrf" value="QHmfX2g3ScB9m1rSEUp9IyRa6gToqgfbvlASMpbhItgzEeoFD3M68i_jAJdefiIRYDSPaYDDf-2KImZLoalRkQ==">
+              <button type="submit" float = "right" class="btn btn-primary">Add Product</button>
+            
+                    </form>
+                    <p class="text-danger" id="error">  </p>
+                    <br />
+}
+            </div>
+        </div>
+    </div>
+</div>

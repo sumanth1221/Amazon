@@ -1,0 +1,99 @@
+﻿@using Newtonsoft.Json;
+@using Amazon.Enums;
+@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
+
+@model Amazon.ViewModels.SignupViewModel
+  
+@{
+    ViewBag.Title = "Sign up";
+} 	
+
+
+@section scripts  {
+
+<script type="text/javascript">
+      $('#password').val()="";
+        $('#email').val() = "";
+    $(document).ready(function() {
+        $('#password').val()="";
+        $('#email').val() = "";
+        });
+    function PasswordStrength() {  
+        event = event || window.event || event.srcElement;  
+            const password = $('#password').val();
+            3
+        if (password != '') {  
+            if (password.length < 8) {
+                document.getElementById("error").innerHTML = "Password should be at least 8 characters";
+                $("#error").show().delay(4000).fadeOut();
+                $('#Password').focus();
+                return false;
+            }
+            else {  
+                $('#password').next('span').text('').hide();
+                return true;
+                 }
+            }
+            else
+             return false;
+    }
+
+        function HideError() {  
+            console.log("call");
+        event = event || window.event || event.srcElement;
+                $('#emailerror').hide();
+        }
+
+</script>
+}
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="well">
+          @using (Html.BeginForm("Signup","Account", FormMethod.Post , new {onsubmit="return PasswordStrength();"}))
+{ 
+        <form  action="" method="post">
+             <div class="form-group">
+              <label for="login" class="control-label">Full Name<font color="#ff0000">*</font></label>
+              <input asp-for="UserNme" class="form-control" required />
+              <span asp-validation-for="UserNme" class="text-danger"></span>
+            </div> 
+              <div class="form-group">
+              <label for="UserEmail" class="control-label">Email<font color="#ff0000">*</font></label> 
+              <input asp-for="UserEmail" class="form-control" id="email" onblur="HideError();" required />
+              <span asp-validation-for="UserEmail" class="text-danger"></span>
+              <span id="emailerror"> <font color="#ff0000"> @ViewBag.error  </font></span>
+            </div>
+                      <div class="form-group">
+              <label for="UserPhNo" class="control-label">Phone No.</label>
+              <input asp-for="UserPhNo" class="form-control" />
+              <span asp-validation-for="UserPhNo" class="text-danger"></span> 
+            </div>
+                      <div class="form-group">
+              <label for="PassWord" class="control-label">Password<font color="#ff0000">*</font></label>
+               <input asp-for="PassWord" type="password" class="form-control" id="password" onblur = "return PasswordStrength();"  required />
+               <span asp-validation-for="PassWord" class="text-danger"></span>
+               <span class="text-danger" id="error">  </span>
+            </div>
+                                <div class="g-recaptcha form-group" data-sitekey="6Leh5bUaAAAAAPwyainJ03nbprQj9jjmj0DPt8fl"></div>
+                                <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" class="terms-accept-checkbox" name="RegistrationForm[termsofservice]"> I have read and agreed with <a href="/terms" target="_blank">Terms of Service</a>
+                </label>
+              </div>
+            </div>
+          
+          <input type="hidden" name="_csrf" value="4naGxmiPFUfIEXYr3Vck5ZAjtWAkR1D2ofZlV28HDsaXAP63PMVbPf9_GEi5NnK121LqI3I-Zc7SlyccHE5X6w==">
+          <button type="submit" class="btn btn-primary">Sign up</button>
+          <span class="pull-right pull-right-middle">Already have an account? <a href="/Account/Login">Sign in</a></span>
+        </form>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+

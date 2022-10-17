@@ -1,0 +1,45 @@
+﻿@model Amazon.Models.AmzUser
+  
+@{
+    ViewBag.Title = "Login";
+
+} 
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="well">
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post))  
+{ 
+                                <form  method="post">
+                    <div class="form-group">
+                          <label for="UserEmail" class="control-label">Email</label>
+                         <input asp-for="UserEmail" class="form-control" required/>
+                         <span asp-validation-for="UserEmail" class="text-danger"></span>
+                    </div>
+                    <div class="form-group form-group__password">
+                        <label for="PassWord" class="control-label">Password</label>
+                        <input asp-for="PassWord" type="password" class="form-control" required/>
+                         <span asp-validation-for="PassWord" class="text-danger"></span>
+                                                    <a href="/resetpassword" class="forgot-password">Forgot password?</a>
+                                            </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"  name="LoginForm[remember]" value="1" id="remember">Remember me
+                        </label>
+                    </div>     
+                    <h6 > <font color="#ff0000"> @ViewBag.error  </font></h6>
+
+                    <input type="hidden" name="_csrf" value="QHmfX2g3ScB9m1rSEUp9IyRa6gToqgfbvlASMpbhItgzEeoFD3M68i_jAJdefiIRYDSPaYDDf-2KImZLoalRkQ==">
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+
+                                            <span class="pull-right pull-right-middle">Do not have an account? <a href="/Account/Signup">Sign up</a></span>
+                                    </form>
+}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

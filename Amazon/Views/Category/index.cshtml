@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Amazon.ViewModels.DeptCtgyViewModel>
+
+@{
+    ViewData["Title"] = "Category";
+}
+
+<h2> <font color="Brown">Category </font></h2>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Add New Category</a>
+    @*@Html.ActionLink("Create New Ticket", "Create")*@
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Department Name
+            </th>
+            <th>
+                Category Name
+            </th>
+            <th>
+                Description
+            </th>
+              <th>
+                Active Ind
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptNme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CtgyNme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CtgyDscr)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.ActInd)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.CtgyId">Edit</a> 
+            </td>
+            <td>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.CtgyId">Delete</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

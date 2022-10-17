@@ -1,0 +1,116 @@
+﻿@model Amazon.ViewModels.UserViewModel
+
+@{
+    ViewData["Title"] = "User";
+}
+
+  
+  <style  class="init">
+      .col-15 {
+  float: left;
+  width: 15%;
+  margin-top: 6px;
+}
+
+      .col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+  input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+</style>
+
+<script src="~/ckeditor/ckeditor.js"></script>
+<script src="~/ckeditor/adapters/jquery.js"></script>
+
+@section scripts  {
+
+<script type="text/javascript">
+var selectedCategorys = $("#UserRole").val();
+var SubCategorySelects = $("#SubCategory").val();
+
+    $(document).ready(function() {
+        });
+         function ValidateUser() {  
+        event = event || window.event || event.srcElement;  
+            if (selectedCategorys == '') 
+            {
+              document.getElementById("error").innerHTML = "Fill in all values";
+              $("#error").show().delay(3000).fadeOut();
+              return false;
+            }
+            if (selectedCategorys != '' )
+            {
+              return true;
+            }
+            else
+              return true;
+    }
+
+$('#UserRole').change(function () {
+    selectedCategorys = $("#UserRole").val()
+});
+
+</script>
+    }
+<h2><font color="Brown">Create New Category </font></h2>
+
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="well">
+                @using (Html.BeginForm("Create", "User", FormMethod.Post , new {onsubmit="return ValidateUser();"}))  
+{ 
+                   <form  method="post">
+                               <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                      <div class="form-group">
+                       <label  class="control-label"><font color="Brown">User Role:</font> <font color="#ff0000">*</font></label>
+                        @Html.DropDownListFor(x => Model.SelectedUserRoleId, new SelectList(Model.UserRole, "Value", "Text"), htmlAttributes: new { @class = "form-control  col-md-2", @id = "UserRole"})
+                        @Html.ValidationMessageFor(x => x.SelectedUserRoleId, "", new { @class = "text-danger" })
+                       </div> 
+                    <div class="form-group">
+                          <label for="UserNme" class="control-label"><font color="Brown">User Name:</font> <font color="#ff0000">*</font></label>
+                         <input asp-for="UserNme" class="form-control" required/>
+                         <span asp-validation-for="UserNme" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                          <label for="UserEmail" class="control-label"><font color="Brown">User Email:</font> <font color="#ff0000">*</font></label>
+                         <input asp-for="UserEmail" class="form-control" required/>
+                         <span asp-validation-for="UserEmail" class="text-danger"></span>
+                    </div>
+                      <div class="form-group">
+                          <label for="UserPhNo" class="control-label"><font color="Brown">User Phone No:</font> <font color="#ff0000">*</font></label>
+                         <input asp-for="UserPhNo" class="form-control" required/>
+                         <span asp-validation-for="UserPhNo" class="text-danger"></span>
+                    </div>
+                      <div class="form-group">
+                          <label for="PassWord" class="control-label"><font color="Brown">Password:</font> <font color="#ff0000">*</font></label>
+                         <input asp-for="PassWord" type="password" class="form-control" required/>
+                         <span asp-validation-for="PassWord" class="text-danger"></span>
+                    </div>
+                    <input type="hidden" name="_csrf" value="QHmfX2g3ScB9m1rSEUp9IyRa6gToqgfbvlASMpbhItgzEeoFD3M68i_jAJdefiIRYDSPaYDDf-2KImZLoalRkQ==">
+               <div class="form-group">
+                <input  type = "submit" value="Add User" id="SubmitForm" class="btn btn-primary" />
+            </div>
+                    </form>
+                    <p class="text-danger" id="error">  </p>
+}
+            </div>
+        </div>
+    </div>
+</div>

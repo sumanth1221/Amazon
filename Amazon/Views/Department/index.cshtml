@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Amazon.Models.AmzDepartment>
+
+@{
+    ViewData["Title"] = "Department";
+}
+
+
+<h2> <font color="Brown">Department </font></h2>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Add New Department</a>
+    @*@Html.ActionLink("Create New Ticket", "Create")*@
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Department Name
+            </th>
+            <th>
+                Description
+            </th>
+              <th>
+                Active Ind
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptNme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptDscr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActInd)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.DeptId">Edit</a> 
+            </td>
+            <td>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.DeptId">Delete</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

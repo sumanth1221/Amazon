@@ -1,0 +1,65 @@
+﻿@model Amazon.Models.AmzDepartment
+
+@{
+    ViewData["Title"] = "Create";
+}
+  <style  class="init">
+      .col-15 {
+  float: left;
+  width: 15%;
+  margin-top: 6px;
+}
+
+      .col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+  input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+</style>
+
+<script src="~/ckeditor/ckeditor.js"></script>
+<script src="~/ckeditor/adapters/jquery.js"></script>
+
+<h2> <font color="Brown">Create New Department </font></h2>
+
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="well">
+                @using (Html.BeginForm("Create", "Department", FormMethod.Post))  
+{ 
+                   <form  method="post">
+                    <div class="form-group">
+                          <label for="CustEmail" class="control-label"><font color="Brown">Depatment Name:</font> <font color="#ff0000">*</font></label>
+                         <input asp-for="DeptNme" class="form-control" required/>
+                         <span asp-validation-for="DeptNme" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                         <label for="subject"><font color="Brown">Description:</font></label>
+                         @Html.TextAreaFor(model => model.DeptDscr, htmlAttributes: new { @class = "ckeditor", placeholder = "Department Description.." })
+                         @Html.ValidationMessageFor(model => model.DeptDscr)
+                   </div>
+                    <input type="hidden" name="_csrf" value="QHmfX2g3ScB9m1rSEUp9IyRa6gToqgfbvlASMpbhItgzEeoFD3M68i_jAJdefiIRYDSPaYDDf-2KImZLoalRkQ==">
+                    <button type="submit" class="btn btn-primary">Add Department</button>
+                    </form>
+}
+            </div>
+        </div>
+    </div>
+</div>
