@@ -100,7 +100,7 @@ Expected Result – Sign in button should work
 ```sh
 Test 3:
 Verify Sign up account button works for valid credentials 
-Expected Result – Sign up button should work for new account creation.  
+Expected Result – Sign up button should work for new account creation and we can verify this by logging into application
 ```
 
 ```sh
