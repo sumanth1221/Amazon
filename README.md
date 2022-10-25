@@ -114,20 +114,6 @@ Verify search products by product description
 Expected Result – Products should be displayed as per product description.
 ```
 
-```sh
-Test 6:
-Verify admin user should be able to see Departments, Categories, Products and User Management pages
-Expected Result – Admin user is able to view Departments, Categories, Products and User Management pages
-```
-
-```sh
-Test 7:
-Verify normal user should not be able to see Departments, Categories, Products and User Management pages
-Expected Result – Normal user is not able to view Departments, Categories, Products and User Management pages
-```
-
-Note - For Credentials, please contact us.
-
 <!-- LICENSE -->
 ## License
 
