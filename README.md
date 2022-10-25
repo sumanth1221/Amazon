@@ -37,7 +37,7 @@ This section is going to list down all the frameworks/libraries used to build ou
 * .NET 6.0
 * ASP.NET
 * C#
-* SQL Database
+* Azure SQL Server and Database
 
 
 <!-- GETTING STARTED -->
@@ -58,16 +58,17 @@ Following list of softwares are required to run this application.
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. 
+_Below is an example of how you can instruct your audience on installing and setting up your app._
 
 1. Clone the repo
    ```sh
    git clone https://github.com/your_username_/Amazon.git
    ```
-2. Install nuget packages
-3. Build the solution
-4. Select Amazon project as startup project and
-5. Run the solution
+2. Install nuget packages (if required)
+3. Open Visual studio
+4. Build the solution by Clicking on 'CTRL + SHIFT + B'
+5. Select Amazon project as startup project in the Solution Explorer and
+6. Run the solution
 
 <!-- TEST CODE -->
 ## Test code
@@ -83,18 +84,35 @@ There are 10 unit tests available to test the application
 Right click on Amazon.Tests and click on Run
 Unit Tests will be executed
 
-**1. Functional Tests**
-Test 1:
+**2. Functional Tests**
+```sh Test 1:
 Verify Username and Password fields with invalid input text. 
 Expected Result – It should display error message as “Invalid Username or Password” 
+```
 
+```sh
 Test 2:
 Verify Sign in button works for valid credentials 
 Expected Result – Sign in button should work
+```
 
+```sh
 Test 3:
 Verify Sign up account button works for valid credentials 
 Expected Result – Sign up button should work for new account creation.  
+```
+
+```sh
+Test 4:
+Verify search products by product name
+Expected Result – Products should be displayed as per product name.
+```
+
+```sh
+Test 5:
+Verify search products by product description
+Expected Result – Products should be displayed as per product description.
+```
 
 <!-- LICENSE -->
 ## License
