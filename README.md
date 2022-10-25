@@ -85,7 +85,8 @@ Right click on Amazon.Tests and click on Run
 Unit Tests will be executed
 
 **2. Functional Tests**
-```sh Test 1:
+```sh 
+Test 1:
 Verify Username and Password fields with invalid input text. 
 Expected Result – It should display error message as “Invalid Username or Password” 
 ```
