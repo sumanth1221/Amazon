@@ -17,7 +17,7 @@ This is similar to Amazon website that is having sub functionality like Products
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#Test code">Test code</a></li>
     <li><a href="#references">References</a></li>
   </ol>
 
@@ -53,8 +53,8 @@ Following list of softwares are required to run this application.
 * .NET 6.0
 * Nuget packages
 * Entity Framework
-* SQL Server
-* SQL Server Management Studio (SSMS)
+* Azure SQL Server
+* Azure SQL Database
 
 ### Installation
 
@@ -65,17 +65,36 @@ _Below is an example of how you can instruct your audience on installing and set
    git clone https://github.com/your_username_/Amazon.git
    ```
 2. Install nuget packages
-   ```sh
-   git clone https://github.com/your_username_/Amazon.git
-   ```
-3. Build the project
+3. Build the solution
 4. Select Amazon project as startup project and
 5. Run the solution
 
-<!-- USAGE EXAMPLES -->
-## Usage
-This website is used to search the products same as Amazon website. In the background we are using 
+<!-- TEST CODE -->
+## Test code
+We can test the application code by using two types of Tests:
+1. Unit Tests
+2. Functional Tests
 
+**1. Unit Tests**
+We have created few unit tests to test the each component of the project.
+Select Amazon.Tests project as startup project.
+Open Tests Explorer in Visual Studio
+There are 10 unit tests available to test the application
+Right click on Amazon.Tests and click on Run
+Unit Tests will be executed
+
+**1. Functional Tests**
+Test 1:
+Verify Username and Password fields with invalid input text. 
+Expected Result – It should display error message as “Invalid Username or Password” 
+
+Test 2:
+Verify Sign in button works for valid credentials 
+Expected Result – Sign in button should work
+
+Test 3:
+Verify Sign up account button works for valid credentials 
+Expected Result – Sign up button should work for new account creation.  
 
 <!-- LICENSE -->
 ## License
