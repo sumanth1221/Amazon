@@ -10,7 +10,7 @@ using System.Linq;
 namespace LearnASPNETCoreMVC5.Controllers
 {
    
-
+    // It is all about Cart functionalities
     [Route("cart")]
     public class CartController : Controller
     {
@@ -20,6 +20,7 @@ namespace LearnASPNETCoreMVC5.Controllers
             _context = context;
         }
 
+        // It defines the home page
         [Route("index")]
         public IActionResult Index()
         {
@@ -39,6 +40,7 @@ namespace LearnASPNETCoreMVC5.Controllers
             return View();
         }
 
+        // It defines the buy functionality
         [Route("buy/{id}")]
         public IActionResult Buy(int id)
         {
@@ -68,6 +70,7 @@ namespace LearnASPNETCoreMVC5.Controllers
             return RedirectToAction("Index");
         }
 
+        // It defines the remove/delete operation
         [Route("remove/{id}")]
         public IActionResult Remove(int id)
         {

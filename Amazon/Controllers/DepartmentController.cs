@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace Amazon.Controllers
 {
-   
+    // It defines the Department Controller functionalities
     public class DepartmentController : Controller
     {
         private readonly AmazonContext _context;
@@ -46,7 +46,7 @@ namespace Amazon.Controllers
 
         }
 
-
+        // It defines create functionality in Departments.
         [HttpPost]
         public IActionResult Create(AmzDepartment departmentmodel)
         {
@@ -61,6 +61,7 @@ namespace Amazon.Controllers
             return RedirectToAction("Index");
         }
 
+        // It defines delete functionality in Departments.
         public IActionResult Delete(int id)
         {
             AmzDepartment AmzDepartment = _context.AmzDepartments.Where(a => a.DeptId.Equals(id)).FirstOrDefault();

@@ -26,7 +26,7 @@ namespace Amazon.Controllers
 
         }
 
-
+        //  It defines retrieving product view models
         [HttpGet]
         public List<ProductViewModel> GetProductViewModels(string Searchby)
         {
@@ -73,7 +73,7 @@ namespace Amazon.Controllers
             return productViewModel;
         }
    
-
+    // It defines retrieving product view models.
     [HttpGet]
     public List<ProductViewModel> GetProductViewModels()
     {

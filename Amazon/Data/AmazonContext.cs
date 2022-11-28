@@ -6,6 +6,7 @@ using Amazon.Models;
 
 namespace Amazon.Data
 {
+    // It defines all about connecting to database
     public partial class AmazonContext : DbContext
     {
         public AmazonContext()
@@ -23,6 +24,7 @@ namespace Amazon.Data
         public virtual DbSet<AmzUser> AmzUsers { get; set; } = null!;
         public virtual DbSet<AmzUserRole> AmzUserRoles { get; set; } = null!;
 
+        // Configuration for database
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

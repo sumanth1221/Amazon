@@ -27,6 +27,8 @@ namespace Amazon.Controllers
         {
             _context = context;
         }
+
+        // It return the login view
         //[Route("")]
         //[Route("index")]
         //[Route("~/")]
@@ -36,6 +38,7 @@ namespace Amazon.Controllers
             return View();
         }
 
+        // It defines the login functionality
         [Route("login")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -66,6 +69,7 @@ namespace Amazon.Controllers
         }
 
 
+        // It defines the logout functionality
         [Route("Logout")]
         [HttpGet]
         public IActionResult Logout()
@@ -75,6 +79,7 @@ namespace Amazon.Controllers
             return RedirectToAction("Login");
         }
 
+        // It returns the Signup functionality
         [Route("Signup")]
         [HttpGet]
         public ActionResult Signup()
@@ -82,6 +87,7 @@ namespace Amazon.Controllers
             return View();
         }
 
+        // It defines the Signup functionality
         [Route("Signup")]
         [HttpPost]
         public ActionResult Signup(SignupViewModel signupviewmodel)

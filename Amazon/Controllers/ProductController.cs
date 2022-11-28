@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Amazon.Controllers
 {
+    // It defines the product controller
     public class ProductController : Controller
     {
         private readonly AmazonContext _context;
@@ -36,7 +37,7 @@ namespace Amazon.Controllers
             }
         }
 
-
+        // It defines about retrieval of getting product view models
         [HttpGet]
         public List<ProductViewModel> GetProductViewModels()
         {
@@ -160,6 +161,7 @@ namespace Amazon.Controllers
             return null;
         }
 
+        // It defines the details of the product
         [HttpGet]
         public ActionResult Detail(int id)
         {

@@ -66,9 +66,10 @@ _Below is an example of how you can instruct your audience on installing and set
    ```
 2. Install nuget packages (if required)
 3. Open Visual studio
-4. Build the solution by Clicking on 'CTRL + SHIFT + B'
-5. Select Amazon project as startup project in the Solution Explorer and
-6. Run the solution
+4. Get the Connection string for database and add into solution
+5. Build the solution by Clicking on 'CTRL + SHIFT + B'
+6. Select Amazon project as startup project in the Solution Explorer and
+7. Run the solution
 
 <!-- TEST CODE -->
 ## Test code

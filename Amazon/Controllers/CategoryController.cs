@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Amazon.Controllers
 {
-
+    // It is all about Category functionalities
     public class CategoryController : Controller
     {
         private readonly AmazonContext _context;
@@ -74,6 +74,7 @@ namespace Amazon.Controllers
 
         }
 
+        // It is all about when we uploaded new product, message will be shown
         [HttpPost]
         public IActionResult Create(DeptCtgyViewModel categorymodel)
         {

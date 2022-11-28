@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Amazon.Controllers
 {
-
+    // It defines about User controller.
     public class UserController : Controller
     {
         private readonly AmazonContext _context;
@@ -17,6 +17,7 @@ namespace Amazon.Controllers
         {
             _context = context;
         }
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -60,6 +61,7 @@ namespace Amazon.Controllers
             }
         }
 
+        // It is defining creating user details.
         [HttpGet]
         public ActionResult Create()
         {
@@ -78,6 +80,7 @@ namespace Amazon.Controllers
 
         }
 
+        // It is defining creating user details.
         [HttpPost]
         public IActionResult Create(UserViewModel userView)
         {
@@ -95,6 +98,7 @@ namespace Amazon.Controllers
             return RedirectToAction("Index");
         }
 
+        // It is defining deleting user details.
         public IActionResult Delete(int id)
         {
             AmzUser AmzUser = _context.AmzUsers.Where(a => a.UserId.Equals(id)).FirstOrDefault();
@@ -103,6 +107,7 @@ namespace Amazon.Controllers
             return RedirectToAction("Index");
         }
 
+        // It is editing creating user details.
         [HttpGet]
         public IActionResult edit(int id)
         {
@@ -110,6 +115,7 @@ namespace Amazon.Controllers
             return View(AmzUser);
         }
 
+        // It is defining editing user details.
         [HttpPost]
         public IActionResult edit(AmzUser UserModel)
         {

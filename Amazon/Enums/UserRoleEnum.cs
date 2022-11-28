@@ -3,6 +3,7 @@ using MessagePack;
 
 namespace Amazon.Enums
 {
+    // Roles definition
     public enum UserRoleEnum
     {
 
