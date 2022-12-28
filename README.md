@@ -19,16 +19,19 @@ This is similar to Amazon website that is having sub functionality like Products
     <li><a href="#Test code">Test code</a></li>
     <li><a href="#references">References</a></li>
   </ol>
+  
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 We have worked on developing an similar Amazon website to ensure data integrity, consistency and redundancy using distributed data base.
 ![image](https://user-images.githubusercontent.com/43805517/196080147-bb2e9ccd-6878-49ef-bd59-621e56f82fc0.png)
+
 ### Built With
 This section is going to list down all the frameworks/libraries used to build our project. Here are a few examples.
 * .NET 6.0
 * ASP.NET
 * C#
 * Azure SQL Server and Database
+
 <!-- GETTING STARTED -->
 ## Getting Started
 This is an example of how you may give instructions on setting up your project locally.
@@ -41,6 +44,7 @@ Following list of softwares are required to run this application.
 * Entity Framework
 * Azure SQL Server
 * Azure SQL Database
+
 ### Installation
 _Below is an example of how you can instruct your audience on installing and setting up your app._
 1. Clone the repo
@@ -56,19 +60,10 @@ _Below is an example of how you can instruct your audience on installing and set
 
 <!-- TEST CODE -->
 ## Test code
-
-    
-          
-            
-    
-
-          
-    
-    
-  
 We can test the application code by using two types of Tests:
 1. Unit Tests
 2. Functional Tests
+
 **1. Unit Tests**
 We have created few unit tests to test the each component of the project.
 Select Amazon.Tests project as startup project.
@@ -76,6 +71,7 @@ Open Tests Explorer in Visual Studio
 There are 10 unit tests available to test the application
 Right click on Amazon.Tests and click on Run
 Unit Tests will be executed
+
 **2. Functional Tests**
 ```sh 
 Test 1:
